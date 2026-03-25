@@ -74,4 +74,4 @@ if [ -n "$KOSHELF_IGNORE_STABLE_METADATA"  "true" ]; then
 fi
 
 echo "Starting KoShelf with: /koshelf $ARGS $@"
-eval exec /koshelf $ARGS "$@"
+eval exec /koshelf serve $ARGS "$@"
