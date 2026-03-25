@@ -4,7 +4,7 @@ set -e
 ARGS=""
 
 if [ -n "$KOSHELF_DATA_PATH" ]; then
-    ARGS="$ARGS --data-path $KOSHELF_DATA_PATH""
+    ARGS="$ARGS --data-path $KOSHELF_DATA_PATH"
 fi
 
 if [ -n "$KOSHELF_BOOKS_PATH" ]; then
