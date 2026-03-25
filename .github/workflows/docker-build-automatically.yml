@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       release_version: ${{ steps.latest_release.outputs.release }}
+      release_type: ${{ steps.set_release_type.outputs.RELEASE_TYPE }}
     steps:
       - name: Get Latest Release
         id: latest_release
@@ -31,12 +32,13 @@ jobs:
 
       - name: Set Release Type Variable
         id: set_release_type
+        
         run: |
           TAG_NAME="${{ steps.latest_release.outputs.release }}"
           if [[ "${TAG_NAME}" == *b* ]]; then
-            echo "RELEASE_TYPE=beta" >> "$GITHUB_ENV"
+            echo "RELEASE_TYPE=beta" >> "$GITHUB_OUTPUT"
           else
-            echo "RELEASE_TYPE=latest" >> "$GITHUB_ENV"
+            echo "RELEASE_TYPE=latest" >> "GITHUB_OUTPUT"
           fi
       - name: Display Release Type
         run: echo "The release type is $RELEASE_TYPE"
@@ -80,7 +82,7 @@ jobs:
             org.opencontainers.image.description=Self-hosted ebook library with KOReader integration
           tags: |
             type=raw,value=${{ needs.fetch-release.outputs.release_version }}
-            type=raw,value=${{ env.RELEASE_TYPE }}
+            type=raw,value=${{ needs.fetch-release.outputs.release_type }}
             type=sha,prefix=sha-
             
       - name: Build and push
