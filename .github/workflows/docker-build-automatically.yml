@@ -33,10 +33,10 @@ jobs:
         id: set_release_type
         run: |
           TAG_NAME="${{ steps.latest_release.outputs.release }}"
-          if [[ "$TAG_NAME" == *b*]]; then
-            echo "RELEASE_TYPE=beta" >> $GITHUB_ENV
+          if [[ "${TAG_NAME}" == *b* ]]; then
+            echo "RELEASE_TYPE=beta" >> "$GITHUB_ENV"
           else
-            echo "RELEASE_TYPE=latest" >> $GITHUB_ENV
+            echo "RELEASE_TYPE=latest" >> "$GITHUB_ENV"
           fi
       - name: Display Release Type
         run: echo "The release type is $RELEASE_TYPE"
