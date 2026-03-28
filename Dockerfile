@@ -60,7 +60,7 @@ ENV PATH="/app:${PATH}"
 USER 1000
 
 LABEL org.opencontainers.image.title="KoShelf"
-LABEL org.opencontainers.image.description="Self-hosted ebook library with KOReader integration"
+LABEL org.opencontainers.image.description="A reading companion powered by KOReader metadata — browse your library, highlights, annotations, and reading statistics from a web dashboard."
 LABEL org.opencontainers.image.source="https://github.com/paviro/KoShelf"
 
 ENTRYPOINT ["/entrypoint.sh"]
