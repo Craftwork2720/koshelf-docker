@@ -39,13 +39,13 @@ RUN ./koshelf --github || echo "Binary check completed"
 
 FROM alpine:3.22
 
-COPY --from=downloader /tmp/version.txt /version.txt
-COPY --from=downloader /tmp/koshelf /koshelf
+COPY --from=downloader /tmp/version.txt /app/version.txt
+COPY --from=downloader /tmp/koshelf /app/koshelf
 COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
-RUN adduser -D -u 65532 koshelf && \
+RUN adduser -D -u 1000 koshelf && \
     chown koshelf:koshelf /koshelf
 
 ENV KOSHELF_LIBRARY_PATH="/books"
@@ -55,8 +55,9 @@ ENV KOSHELF_ENABLE_AUTH="false"
 ENV KOSHELF_INCLUDE_UNREAD="false"
 ENV KOSHELF_IGNORE_STABLE_METADATA="false"
 ENV KOSHELF_PORT="3000"
+ENV PATH="/app:${PATH}"
 
-USER 65532
+USER 1000
 
 LABEL org.opencontainers.image.title="KoShelf"
 LABEL org.opencontainers.image.description="Self-hosted ebook library with KOReader integration"
