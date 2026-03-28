@@ -15,6 +15,7 @@ services:
     volumes:
       - /path/to/your/books:/books:ro
       - /path/to/your/settings:/settings:ro
+      - /path/to/koshelfdata
     environment:
       KOSHELF_TITLE: "My KoShelf"
     restart: "unless-stopped"
