@@ -77,7 +77,7 @@ This setup allows for seamless syncing of your reading data between devices whil
 |KOSHELF_IGNORE_STABLE_METADATA: "false"|--ignore-stable-page-metadata|Ignore KOReader stable page metadata for page totals and page-based stats scaling. By default, stable metadata is used when available.|
 |KOSHELF_LANGUAGE: "de_DE"|--language|Language for UI translations. Use full locale code (e.g., en_US, de_DE, pt_BR) for correct date formatting. Default: en_US|
 |KOSHELF_ENABLE_AUTH: TRUE|--enable-auth|start server with auth enabled (on first run, KoShelf generates a password and prints it once) for details see https://github.com/paviro/KoShelf/blob/main/docs/authentication.md|
-|KOSHELF_ENABLE_WRITEBACK: TRUE|--enable-writeback|writeback enabled (edit annotations and metadata from the UI)|
+|KOSHELF_ENABLE_WRITEBACK: TRUE|--enable-writeback|writeback enabled (edit annotations and metadata from the UI) for this to work the folder KOSHELF_LIBRARY_PATH (or if used KOSHELF_DOCSETTINGS_PATH or KOSHELF_HASHDOCSETTINGS_PATH) or with the booksneeds to be writable for user with id 1000
 |KOSHELF_TRUSTED_PROXIES: True|--trusted-proxies|Comma-separated or repeated trusted reverse proxy IP/CIDR entries for forwarded client IP/proto resolution|
 
 
