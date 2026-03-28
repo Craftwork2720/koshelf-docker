@@ -35,7 +35,7 @@ RUN KOSHELF_VERSION=$(cat /tmp/version.txt) && \
     file koshelf && \
     ls -lh koshelf
 
-RUN ./koshelf --github || echo "Binary check completed"
+RUN ./koshelf github || echo "Binary check completed"
 
 FROM alpine:3.22
 
@@ -46,7 +46,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 RUN adduser -D -u 1000 koshelf && \
-    chown koshelf:koshelf /koshelf
+    chown koshelf:koshelf koshelf
 
 ENV KOSHELF_LIBRARY_PATH="/books"
 ENV KOSHELF_STATISTICS_DB="/settings/statistics.sqlite3"
