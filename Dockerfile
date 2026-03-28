@@ -46,7 +46,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 RUN adduser -D -u 1000 koshelf && \
-    chown koshelf:koshelf koshelf
+    chown koshelf:koshelf /app/koshelf
 
 ENV KOSHELF_LIBRARY_PATH="/books"
 ENV KOSHELF_STATISTICS_DB="/settings/statistics.sqlite3"
