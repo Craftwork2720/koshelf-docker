@@ -29,7 +29,7 @@ services:
 ---
 
 ### CLI interface
-#### serve           Start the web server (API + live data refresh
+#### serve           Start the web server (API + live data refresh)
 Start the web server. Serves the embedded React app at / with API endpoints under /api/**, and automatically refreshes data on library changes. (Default in the container)
 #### export          Generate a static site
 Generate a static site to the given directory. This is not tested right now for the docker container
