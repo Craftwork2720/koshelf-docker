@@ -12,6 +12,8 @@ All your KOReader notes & highlights combined into a beautiful reading dashboard
 ---
 ### With Docker Compose
 
+⚡️the volume /path/to/your/books needs to be rw if KOSHELF_ENABLE_WRITEBACK is used!
+
 ```yaml
 services:
   koshelf:
@@ -19,7 +21,7 @@ services:
     ports:
      - "3000:3000"
     volumes:
-      - /path/to/your/books:/books:ro
+      - /path/to/your/books:/books:rw
       - /path/to/your/settings:/settings:ro
       - /path/to/koshelfdata
     environment:
